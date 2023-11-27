@@ -16,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Counter></Counter>
         {
           friends.map(frnd => <Friend friend={frnd}></Friend>)
         }
@@ -30,6 +31,20 @@ function App() {
       </header>
     </div>
   );
+}
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  const increase = () => setCount(count + 1);
+  const decrease = () => setCount(count - 1);
+
+  return (
+    <div>
+      <h4>Count : {count}</h4>
+      <button onClick={increase}>Increase</button>
+      <button onClick={decrease}>Decrease</button>
+    </div>
+  )
 }
 
 function Friend(props){
